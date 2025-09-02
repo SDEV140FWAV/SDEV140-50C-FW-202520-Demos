@@ -12,8 +12,6 @@ gallons_used = int(input("Enter the gallons used: "))
 distance_driven = ending_mileage - starting_mileage
 miles_per_gallon = distance_driven / gallons_used
 
-
-
 print("Starting Mileage: " + str(starting_mileage))
 print("Ending Mileage: ", ending_mileage)
 print("Distance Driven: ", distance_driven)
