@@ -34,7 +34,17 @@ verb4 = input(ING_VERB)
 adjective3 = input(ADJECTIVE)
 number = input(NUMBER)
 plural_noun4 = input(PLURAL_NOUN)
+print()
+print()
+print(f"A vacation is when you take a trip to some {adjective1} place with your {adjective2} family.", end =" ")
+print(f"Usually you go to some place that is near a/an {noun1} or up on a/an {noun2}.", end=" ")
+print(f"A good vacation place is one where you can ride {plural_noun1} or play {game} or go hunting for {plural_noun2}.", end=" ")
+print(f"I like to spend my time {verb1} or {verb2}.", end=" ")
+print(f"When parents go on a vacation, they spend their time eating three {plural_noun3} a day, and fathers play golf, and mothers sit around {verb3}.", end=" ")
+print(f"Last summer, my little brother fell in a/an {noun3} and got poison {plant} all over his {body_part}.", end=" ")
+print(f"My family is going to go to (the) {place}, and I will practice {verb4}.", end=" ")
+print(f"Parents need vacations more than kids because parents are always very {adjective3} and because they have to work {number} hours every day all year making enough {plural_noun4} to pay for the vacation.")
 
-print(f"A vacation is when you take a trip to some {adjective1} place with your {adjective2} family.")
+
 
 
