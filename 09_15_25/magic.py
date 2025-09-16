@@ -1,6 +1,6 @@
 import random
 
-magic_num = random.randint(1,100)
+magic_num = random.randint(100,1000)
 valid_num = False
 while not valid_num:
     user_num = input("Enter a number between 1 and 100: ")
@@ -13,6 +13,11 @@ while not valid_num:
     else:
         print(f"Error: The input, {user_num}, contains non-numeric digits.")
         valid_num = False
+if int(user_num) <= magic_num:
+    print("My number is higher!!! I win!")
+else:
+    print("Good Guess!")
 
+print("Thanks for playing!")
     
         

@@ -8,3 +8,5 @@ if x == y:
     print("equal")
 else:
     print("Not equal")
+
+print("abc" in "123abdc")
