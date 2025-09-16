@@ -2,7 +2,7 @@ print("Will".upper() < "William".upper())
 print("hi" < "hello")
 x = 0
 y = 0
-x == 7
+x = 7
 y == 8
 if x == y:
     print("equal")
@@ -10,3 +10,12 @@ else:
     print("Not equal")
 
 print("abc" in "123abdc")
+
+y = 5 if x == 2 else 9*x
+
+print(y)
+
+if x == 2:
+    y = 5
+else:
+    y = 9*x
