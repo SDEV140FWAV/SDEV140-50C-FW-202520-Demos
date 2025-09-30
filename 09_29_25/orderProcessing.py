@@ -1,3 +1,5 @@
+from os.path import join, exists
+import sys
 '''
 Product	Unit Price
 A	17.46
@@ -25,14 +27,49 @@ def display_invoice(invoice):
         product = row["product"]
         quantity = row["quantity"]
         total = row["total"]
-        output = f"|{product:^15}|{quantity:15d}|{total:15.2f}|"
+        total_str = f"${total:.2f}"
+        output = f"|{product:^15}|"
+        if quantity != None:
+            output += f"{quantity:15d}|"
+        else:
+            output += f"{' ':15}|"
+        output += f"{total_str:>15}|"
         print(output)
+        print(f"+{fill*15}+{fill*15}+{fill*15}+")
+
+def create_invoice_file(invoice, file):
+    filename = join("invoiceFiles",f"inv{file}")
+    with open(filename,'w') as f:
+        fill = '-'
+        product_heading = "Product"
+        quantity_heading = "Quantity"
+        total_heading = "Total"
+
+        f.write(f"+{fill*15}+{fill*15}+{fill*15}+\n")
+        f.write(f"|{product_heading:<15}|{quantity_heading:<15}|{total_heading:<15}|\n")
+        f.write(f"+{fill*15}+{fill*15}+{fill*15}+\n")
+        for row in invoice:
+            product = row["product"]
+            quantity = row["quantity"]
+            total = row["total"]
+            total_str = f"${total:.2f}"
+            output = f"|{product:^15}|"
+            if quantity != None:
+                output += f"{quantity:15d}|"
+            else:
+                output += f"{' ':15}|"
+            output += f"{total_str:>15}|\n"
+            f.write(output)
+            f.write(f"+{fill*15}+{fill*15}+{fill*15}+\n")
+    
+    
 
 
-def process_file():
+def process_file(file):
     invoice = []
     total = 0.0
-    f = open("order.txt")
+    filename = join("orderFiles",file)
+    f = open(filename)
     for line in f:
         token_list = line.split()
         product = token_list[0]
@@ -52,5 +89,13 @@ def process_file():
     
 
 if __name__ == "__main__":
-    invoice = process_file()
+    if len(sys.argv) != 2:
+        filename = "order.txt"
+    else:
+        filename = sys.argv[1]
+    if not exists(join("orderFiles",filename)):
+        print("File does not exist.")
+        sys.exit(1)  # 1 indicates error
+    invoice = process_file(filename)
     display_invoice(invoice)
+    create_invoice_file(invoice, filename)
