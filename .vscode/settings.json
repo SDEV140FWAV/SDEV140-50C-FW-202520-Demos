@@ -1,0 +1,7 @@
+{
+    "python.testing.pytestArgs": [
+        "10_06_25"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}
