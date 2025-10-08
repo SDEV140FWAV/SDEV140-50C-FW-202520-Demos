@@ -142,4 +142,11 @@ def test_game_playCard():
     assert len(game.wastes[0]) == 0
 
 
-    
+def test_game_calculateScore():
+    game = Game()
+    assert game.calculateScore() == 48
+
+    for i in range(4):
+        game.drawCard()
+        game.playDrawnCard(0, "waste")
+    assert game.calculateScore() == 48
