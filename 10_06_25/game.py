@@ -11,6 +11,9 @@ class Pile:
     def getTopCard(self):
         return self.cards.pop()
 
+    def viewTopCard(self):
+        return self.cards[-1]
+    
     def __len__(self):
         return len(self.cards)
     

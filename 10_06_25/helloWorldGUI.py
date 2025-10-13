@@ -11,7 +11,7 @@ btn4 = tk.Button(root, text="Hello World4!")
 btn4.grid(row = 0, column= 2, rowspan=2, sticky="ns")
 
 root.title("Hello World!")
-root.geometry("640x480+1900+300")
+root.geometry("640x480+300+300")
 root.resizable(False, False)
 
 
